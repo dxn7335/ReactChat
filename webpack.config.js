@@ -1,8 +1,10 @@
-var webpack = require('webpack');  
+var webpack = require('webpack'); 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {  
     entry: [
       'webpack/hot/only-dev-server',
-      "./js/app.js"
+      "./src/js/app.js"
     ],
     output: {
         path: __dirname + '/build',
@@ -16,7 +18,11 @@ module.exports = {
         ]
     },
     plugins: [
-      new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'ReactChat',
+            template: 'src/index.html'
+        })
     ]
 
 };
