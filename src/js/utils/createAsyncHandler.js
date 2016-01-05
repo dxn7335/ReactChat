@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from 'react-router';
-import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
+import { Route } from 'react-router';
 
 // Loading Asynchronously with React-router
 var createAsyncHandler = function(bundle) {
@@ -33,7 +33,7 @@ var createAsyncHandler = function(bundle) {
       if (Component) {
         // can't find RouteHandler in the loaded component, so we just grab
         // it here first.
-        this.props.activeRoute = <RouteHandler/>;
+        this.props.activeRoute = this.props.children;
         return <Component {...this.props}/>;
       }
       return this.preRender();
